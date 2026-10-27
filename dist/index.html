@@ -1,9 +1,474 @@
 <!doctype html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Entropía | Laboratorio Interactivo de Econofísica y Sistemas Complejos</title><meta name="description" content="Entropía es un laboratorio interactivo de econofísica: explora simulaciones de paseos aleatorios, dinámicas de mercados financieros y física estadística aplicada a la economía."><meta name="keywords" content="econofísica, econofisica, fisica y economia, sistemas complejos, paseos aleatorios, física estadística, mercados financieros, modelos de agentes, laboratorio de econofisica"><meta name="author" content="Jhimy Sayas"><meta name="robots" content="index, follow"><meta property="og:type" content="website"><meta property="og:title" content="Entropía | Laboratorio de Econofísica"><meta property="og:description" content="Investiga la economía con las herramientas de la física: experimentos interactivos, paseos aleatorios y archivo de investigaciones."><meta property="og:locale" content="es_ES"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Entropía | Laboratorio de Econofísica"><meta name="twitter:description" content="Investiga la economía con las herramientas de la física: experimentos interactivos, paseos aleatorios y archivo de investigaciones."><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Entropía — Laboratorio de Econofísica","applicationCategory":"EducationalApplication","operatingSystem":"All","description":"Plataforma y laboratorio interactivo para investigar la economía utilizando herramientas de la física estadística y sistemas complejos.","genre":"Econofísica","keywords":["econofísica","física estadística","mercados financieros","sistemas complejos","paseos aleatorios"]}</script><link rel="stylesheet" href="style.css"></head>
-<body><header><a class="brand" href="#inicio"><span class="brand-icon">∿</span> entropía<span class="brand-dot">.</span></a><nav><a class="active" href="#biblioteca">Investigaciones</a><a href="#laboratorio">Laboratorio</a><a href="#ruta">Mi recorrido</a></nav><button class="button small" id="addTop">＋ Nueva investigación</button></header>
-<main id="inicio"><section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="live"></span> MI UNIVERSO DE ECONOFÍSICA</div><h1>La economía.<br>Vista desde<br><em>otra dimensión.</em></h1><p>Un espacio para hacer preguntas, encontrar patrones y conectar la física con los sistemas económicos. Una investigación a la vez.</p><div class="hero-actions"><a class="button" href="#biblioteca">Explorar investigaciones <span>↗</span></a><a class="text-link" href="#laboratorio">Experimentar <span>→</span></a></div><div class="hero-foot"><span>FÍSICA × ECONOMÍA × CURIOSIDAD</span><span>01 — ∞</span></div></div><div class="hero-art"><canvas id="network" aria-label="Representación de una red de agentes económicos"></canvas><div class="art-top"><span>FIG. 001</span><span>SISTEMAS COMPLEJOS</span></div><div class="formula">P(x) ∝ x<sup>−α</sup><small>El orden detrás del aparente caos.</small></div><div class="art-bottom"><span><i></i> TODO ESTÁ CONECTADO</span><span>↗</span></div></div></section>
-<section class="overview"><div><span class="stat-number" id="total">00</span><span>Investigaciones<br><small>Tu archivo en crecimiento</small></span></div><div><span class="stat-number">03</span><span>Líneas de exploración<br><small>Un universo por descubrir</small></span></div><div><span class="level">↗</span><span>Desde nivel junior<br><small>Aprender también es investigar</small></span></div><span class="overview-note">Pequeñas preguntas.<br>Grandes conexiones.</span></section>
-<section id="biblioteca" class="library"><div class="section-heading"><div><div class="eyebrow">01 / ARCHIVO PERSONAL</div><h2>Ideas que toman forma<span>.</span></h2></div><button class="text-link" id="export">Exportar mi archivo ↗</button></div><p class="section-intro">Tus notas, hallazgos y preguntas abiertas, en un solo lugar.</p><div class="toolbar"><div class="filters" role="group" aria-label="Filtrar investigaciones"><button class="selected" data-filter="Todos">Todo</button><button data-filter="Mercados">Mercados financieros</button><button data-filter="Redes">Redes complejas</button><button data-filter="Estadística">Física estadística</button></div><label class="search">⌕ <input id="search" placeholder="Buscar una idea…" aria-label="Buscar investigaciones"></label></div><div class="collection-info"><span id="count"></span><select id="sort" aria-label="Ordenar investigaciones"><option value="new">Más recientes primero</option><option value="az">Título: A–Z</option></select></div><div class="cards" id="cards"></div><p class="storage-note">◉ Archivo guardado en este navegador. Exporta una copia para conservar tus datos y documentos. <button id="import">Importar copia</button><input type="file" id="importFile" accept="application/json" hidden></p></section>
-<section id="laboratorio" class="lab"><div class="lab-copy"><div class="eyebrow">02 / LABORATORIO ABIERTO</div><h2>¿Y si el azar<br>tuviera un patrón?</h2><p>Explora un paseo aleatorio: un modelo sencillo para empezar a pensar en fluctuaciones. Cambia la amplitud de los pasos y observa cómo se transforma la trayectoria.</p><span class="pill">EXPERIMENTO 001 · JUNIOR</span><label for="vol">Amplitud de fluctuación <output id="volOut">5</output></label><input type="range" id="vol" min="1" max="15" value="5"><button class="button" id="simulate">↻ Generar otra trayectoria</button><small>Simulación educativa. No representa precios reales ni predice mercados.</small></div><div class="chart-wrap"><div class="chart-head"><span>PASEO ALEATORIO</span><span>200 pasos / x₀ = 100</span></div><canvas id="chart" aria-label="Gráfico de una trayectoria aleatoria de 200 pasos"></canvas><div class="chart-caption"><span>TIEMPO →</span><span>xₜ₊₁ = xₜ + εₜ</span></div></div></section>
-<section id="ruta" class="journey"><div class="section-heading"><div><div class="eyebrow">03 / MI RECORRIDO</div><h2>La curiosidad es el punto de partida<span>.</span></h2></div><span class="journey-label">TU RUTA, A TU RITMO</span></div><div class="steps"><button data-step="0"><span>01</span><small>PRIMEROS PASOS</small><h3>Construir las bases</h3><p>Probabilidad, estadística y Python.<br>El lenguaje de tus próximas ideas.</p><b>Marcar como completado ○</b></button><button data-step="1"><span>02</span><small>CONECTAR IDEAS</small><h3>Explorar los modelos</h3><p>Paseos aleatorios, redes y agentes.<br>De la intuición al experimento.</p><b>Marcar como completado ○</b></button><button data-step="2"><span>03</span><small>HACER CIENCIA</small><h3>Mi primera investigación</h3><p>Una pregunta, datos y resultados.<br>Tu propia contribución comienza aquí.</p><b>Marcar como completado ○</b></button></div></section><footer><a class="brand" href="#inicio">∿ entropía.</a><span>Un cuaderno abierto a nuevas posibilidades.</span><a href="#inicio">Volver al inicio ↑</a></footer></main>
-<dialog id="editor"><form id="entryForm"><div class="modal-head"><span class="eyebrow">TU SIGUIENTE PREGUNTA</span><button type="button" class="close" aria-label="Cerrar">×</button></div><h2>Nueva investigación</h2><label>Título<input name="title" required maxlength="120" placeholder="¿Qué quieres descubrir?"></label><div class="form-row"><label>Línea de exploración<select name="topic"><option>Mercados</option><option>Redes</option><option>Estadística</option></select></label><label>Estado<select name="status"><option>Idea inicial</option><option>En progreso</option><option>Completada</option></select></label></div><label>Resumen y notas<textarea name="notes" rows="5" required placeholder="Tu pregunta, hipótesis, metodología o primeros hallazgos…"></textarea></label><label>Documento adjunto (opcional, hasta 10 MB)<input name="file" type="file" accept=".pdf,.txt,.md,.csv,.ipynb,.docx"></label><p class="storage-note">Se guardará en este navegador. Puedes exportar una copia desde tu archivo.</p><p id="formError" role="alert"></p><button class="button" type="submit">Guardar investigación ↗</button></form></dialog><dialog id="detail"><div class="modal-head"><span class="eyebrow" id="detailTopic"></span><button class="close" aria-label="Cerrar">×</button></div><h2 id="detailTitle"></h2><p id="detailMeta"></p><p id="detailNotes"></p><div id="detailActions"></div></dialog><div id="toast" role="status"></div><script src="app.js"></script></body></html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entropía | Laboratorio Interactivo de Econofísica y Sistemas Complejos</title>
+  <meta name="description" content="Entropía es un laboratorio interactivo de econofísica: fundamentos teóricos, simulaciones de paseos aleatorios, dinámicas de mercados financieros y física estadística aplicada a la economía.">
+  <meta name="keywords" content="econofísica, econofisica, qué es la econofísica, física y economía, sistemas complejos, paseos aleatorios, física estadística, mercados financieros, modelos de agentes, colas pesadas, leyes de potencia, laboratorio de econofisica">
+  <meta name="author" content="Jhimy Sayas Parodi">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://jhimyjsp.github.io/entropia/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph / Redes Sociales (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Entropía — Laboratorio de Econofísica">
+  <meta property="og:title" content="Entropía | Laboratorio Interactivo de Econofísica">
+  <meta property="og:description" content="Investiga la economía con las herramientas de la física estadística: fundamentos, simulaciones de fluctuaciones, modelos de redes y archivo científico.">
+  <meta property="og:url" content="https://jhimyjsp.github.io/entropia/">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Entropía | Laboratorio de Econofísica">
+  <meta name="twitter:description" content="Explora cómo la física estadística y los sistemas complejos explican las fluctuaciones de los mercados financieros.">
+
+  <!-- Datos estructurados Schema.org para Google (WebApplication + FAQPage) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://jhimyjsp.github.io/entropia/#webapp",
+        "name": "Entropía — Laboratorio de Econofísica",
+        "url": "https://jhimyjsp.github.io/entropia/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "description": "Laboratorio y plataforma interactiva para estudiar la economía mediante física estadística, leyes de potencia, paseos aleatorios y modelos de sistemas complejos.",
+        "genre": "Econofísica",
+        "inLanguage": "es",
+        "author": {
+          "@type": "Person",
+          "name": "Jhimy Sayas Parodi"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://jhimyjsp.github.io/entropia/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es la econofísica y qué estudia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La econofísica es un campo interdisciplinar de investigación científica que aplica conceptos y métodos de la física estadística, la termodinámica y los sistemas complejos para estudiar problemas económicos, dinámicas de mercados financieros y distribuciones de riqueza."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Por qué la econofísica rechaza la distribución normal o campana de Gauss en finanzas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La teoría económica clásica asume que las variaciones de precios siguen una curva de Gauss, tratando los colapsos como eventos casi imposibles. Sin embargo, los datos empíricos demuestran que los retornos financieros exhiben colas pesadas (fat tails) y leyes de potencia: los eventos extremos, como crisis y pánicos, ocurren con órdenes de magnitud más frecuencia que lo pronosticado por modelos normales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la diferencia entre econometría y econofísica?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La econometría clásica suele partir de supuestos teóricos a priori (como el equilibrio general y agentes 100% racionales). Por el contrario, la econofísica es inductiva: parte de datos empíricos de alta frecuencia sin asumir un equilibrio estático, modelando el mercado como un sistema complejo autoorganizado con interacciones no lineales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué modelos matemáticos se utilizan en este laboratorio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Se emplean paseos aleatorios (random walks), ecuaciones de difusión, procesos estocásticos de Lévy, leyes de potencias de Pareto, modelos basados en agentes (como el modelo de Ising adaptado a finanzas) y teoría de redes complejas para evaluar contagio interbancario."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puede la econofísica predecir colapsos bursátiles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La econofísica no predice precios individuales exactos día a día, pero sí detecta acumulación de correlaciones, estados de criticalidad autoorganizada y oscilaciones log-periódicas que señalan la proximidad de transiciones de fase o caídas bruscas sistémicas."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="#inicio"><span class="brand-icon">∿</span> entropía<span class="brand-dot">.</span></a>
+    <nav>
+      <a class="active" href="#inicio">Inicio</a>
+      <a href="#fundamentos">Fundamentos</a>
+      <a href="#laboratorio">Laboratorio</a>
+      <a href="#biblioteca">Investigaciones</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#referencias">Referencias</a>
+    </nav>
+    <button class="button small" id="addTop">＋ Nueva investigación</button>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live"></span> LABORATORIO CIENTÍFICO INTERACTIVO</div>
+        <h1>La economía.<br>Vista desde<br><em>la física.</em></h1>
+        <p>Un espacio riguroso para formular preguntas, contrastar datos empíricos y modelar los sistemas económicos con las herramientas de la física estadística y la complejidad.</p>
+        <div class="hero-actions">
+          <a class="button" href="#laboratorio">Ir al Simulador <span>↗</span></a>
+          <a class="text-link" href="#fundamentos">Explorar teoría <span>→</span></a>
+        </div>
+        <div class="hero-foot">
+          <span>FÍSICA ESTADÍSTICA × ECONOMÍA COMPUTACIONAL</span>
+          <span>01 — ∞</span>
+        </div>
+      </div>
+      <div class="hero-art">
+        <canvas id="network" aria-label="Representación de una red de agentes económicos"></canvas>
+        <div class="art-top">
+          <span>FIG. 001</span>
+          <span>SISTEMAS COMPLEJOS Y REDES</span>
+        </div>
+        <div class="formula">P(x) ∝ x<sup>−α</sup><small>Leyes de potencia: el orden oculto tras el aparente caos.</small></div>
+        <div class="art-bottom">
+          <span><i></i> ACOPLAMIENTO NO LINEAL</span>
+          <span>↗</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="overview">
+      <div>
+        <span class="stat-number" id="total">00</span>
+        <span>Investigaciones<br><small>Tu archivo científico en memoria</small></span>
+      </div>
+      <div>
+        <span class="stat-number">03</span>
+        <span>Líneas analíticas<br><small>Mercados · Redes · Distribuciones</small></span>
+      </div>
+      <div>
+        <span class="level">∿</span>
+        <span>Física Estadística<br><small>Dinámica estocástica y fractales</small></span>
+      </div>
+      <span class="overview-note">De las microinteracciones<br>al comportamiento macroeconómico.</span>
+    </section>
+
+    <!-- SECCIÓN FUNDAMENTOS DE ECONOFÍSICA (SEO DE ALTO IMPACTO) -->
+    <section id="fundamentos" class="fundamentals">
+      <div class="section-tag">MARCO CIENTÍFICO</div>
+      <h2>¿Qué es la Econofísica y por qué desafía el modelo clásico?</h2>
+      <p class="lead-p">
+        La <strong>econofísica</strong> es una disciplina formalizada a mediados de los años noventa por físicos como <em>H. Eugene Stanley</em> y <em>Rosario Mantegna</em>. Su premisa fundamental es que las economías modernas no son máquinas en equilibrio estático gobernadas por agentes perfectos, sino <strong>sistemas complejos adaptativos fuera del equilibrio</strong>, análogos a la turbulencia, los materiales magnéticos y los cambios de fase.
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept-card">
+          <div class="concept-badge">P(S &gt; x) ∝ x<sup>−α</sup></div>
+          <h3>Colas Pesadas y Leyes de Escala</h3>
+          <p>
+            Los modelos clásicos asumen fluctuaciones gaussianas donde las caídas bruscas son anomalías de una vez por milenio. La evidencia empírica en econofísica demuestra que las series financieras exhiben <strong>colas pesadas (fat tails)</strong>: los eventos catastróficos son mucho más frecuentes y siguen distribuciones de ley de potencia invariantes de escala.
+          </p>
+          <div class="concept-tag">● DISTRIBUCIONES DE LÉVY · CISNES NEGROS</div>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-badge">H ∈ (0, 1)</div>
+          <h3>Memoria Larga y Fractales</h3>
+          <p>
+            Propuesto inicialmente por Benoit Mandelbrot, el mercado presenta <strong>persistencia temporal y autocorrelación de volatilidad</strong> (volatility clustering). Los períodos de alta agitación tienden a ser seguidos por más agitación, invalidando la hipótesis de independencia temporal estricta del paseo aleatorio simple.
+          </p>
+          <div class="concept-tag">● EXPONENTE DE HURST · AUTOCORRELACIÓN</div>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-badge">k<sub>in</sub>, k<sub>out</sub></div>
+          <h3>Redes y Riesgo Sistémico</h3>
+          <p>
+            Las instituciones financieras y las cadenas productivas forman grafos libres de escala (*scale-free networks*). La econofísica analiza cómo la topología de interconexión permite que el colapso de un solo nodo central desencadene una <strong>cascada de fallos de crédito</strong> y contagio a escala global.
+          </p>
+          <div class="concept-tag">● TEORÍA DE GRAFOS · CONTAGIO INTERBANCARIO</div>
+        </div>
+      </div>
+
+      <!-- TABLA COMPARATIVA -->
+      <div class="table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>VARIABLE DE ANÁLISIS</th>
+              <th>ECONOMÍA CLÁSICA TRADICIONAL</th>
+              <th>ECONOFÍSICA Y SISTEMAS COMPLEJOS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Naturaleza del Sistema</td>
+              <td>Equilibrio general estático (fuerzas de oferta y demanda siempre balanceadas).</td>
+              <td>Sistema dinámico fuera de equilibrio con constantes fluctuaciones y saltos.</td>
+            </tr>
+            <tr>
+              <td>Comportamiento de los Agentes</td>
+              <td>Agente representativo ideal, 100% racional con información completa.</td>
+              <td>Agentes heterogéneos con racionalidad limitada, imitación y comportamiento de rebaño.</td>
+            </tr>
+            <tr>
+              <td>Distribución de Rendimientos</td>
+              <td>Campana de Gauss / Distribución Normal (ignora riesgos extremos).</td>
+              <td>Colas anchas (*Fat Tails*), leyes de potencias y distribuciones truncadas de Lévy.</td>
+            </tr>
+            <tr>
+              <td>Metodología</td>
+              <td>Deductiva: Parte de axiomas teóricos y fuerza los datos a coincidir.</td>
+              <td>Inductiva y empírica: Analiza microdatos reales de alta frecuencia mediante física computacional.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECCIÓN LABORATORIO INTERACTIVO -->
+    <section id="laboratorio" class="lab">
+      <div class="lab-copy">
+        <div class="eyebrow">02 / LABORATORIO EXPERIMENTAL</div>
+        <h2>¿Y si el azar<br>tuviera un patrón?</h2>
+        <p>Explora un paseo aleatorio discreto (<em>Random Walk</em>): la base conceptual introducida por Louis Bachelier en 1900. Modifica el parámetro de fluctuación (volatilidad instantánea) para simular diferentes regímenes de difusión browniana.</p>
+        <span class="pill">EXPERIMENTO 001 · DIFUSIÓN ESTOCÁSTICA</span>
+        <label for="vol">Amplitud de fluctuación (&sigma;) <output id="volOut">5</output></label>
+        <input type="range" id="vol" min="1" max="15" value="5">
+        <button class="button" id="simulate">↻ Generar otra trayectoria</button>
+        <small>Simulación numérica educativa en tiempo real. Modela difusión estocástica unidimensional x<sub>t+1</sub> = x<sub>t</sub> + &epsilon;<sub>t</sub>.</small>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-head">
+          <span>PASEO ALEATORIO DISCRETO</span>
+          <span>200 pasos temporales / x₀ = 100</span>
+        </div>
+        <canvas id="chart" aria-label="Gráfico de una trayectoria de paseo aleatorio en 200 pasos"></canvas>
+        <div class="chart-caption">
+          <span>TIEMPO t →</span>
+          <span>x<sub>t+1</sub> = x<sub>t</sub> + &epsilon;<sub>t</sub></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHIVO PERSONAL E INVESTIGACIONES -->
+    <section id="biblioteca" class="library">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">03 / ARCHIVO CIENTÍFICO PERSONAL</div>
+          <h2>Cuaderno de Investigaciones<span>.</span></h2>
+        </div>
+        <button class="text-link" id="export">Exportar archivo JSON ↗</button>
+      </div>
+      <p class="section-intro">Tus hipótesis de trabajo, notas de clase, modelos matemáticos y preguntas abiertas persistidos localmente.</p>
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filtrar investigaciones">
+          <button class="selected" data-filter="Todos">Todo</button>
+          <button data-filter="Mercados">Mercados financieros</button>
+          <button data-filter="Redes">Redes complejas</button>
+          <button data-filter="Estadística">Física estadística</button>
+        </div>
+        <label class="search">⌕ <input id="search" placeholder="Buscar investigación o concepto…" aria-label="Buscar investigaciones"></label>
+      </div>
+      <div class="collection-info">
+        <span id="count"></span>
+        <select id="sort" aria-label="Ordenar investigaciones">
+          <option value="new">Más recientes primero</option>
+          <option value="az">Título: A–Z</option>
+        </select>
+      </div>
+      <div class="cards" id="cards"></div>
+      <p class="storage-note">◉ Almacenamiento seguro en IndexedDB de tu navegador. Exporta una copia para conservar tus datos y documentos. <button id="import">Importar copia</button><input type="file" id="importFile" accept="application/json" hidden></p>
+    </section>
+
+    <!-- SECCIÓN PREGUNTAS FRECUENTES (FAQ PARA GOOGLE SEARCH CONSOLE) -->
+    <section id="faq" class="faq-section">
+      <div class="section-tag">PREGUNTAS FRECUENTES</div>
+      <h2>Respuestas Clave sobre la Econofísica</h2>
+      <p class="lead-p">Resolvemos las dudas conceptuales más recurrentes sobre la aplicación de las ciencias físicas en el análisis económico y financiero.</p>
+
+      <div class="faq-grid">
+        <details class="faq-item" open>
+          <summary>¿Qué es exactamente la econofísica y cómo surgió?</summary>
+          <p>
+            La econofísica es un campo interdisciplinario que nació en 1995 en una conferencia en Calcuta, acuñado por el físico estadounidense H. Eugene Stanley. Físicos estadísticos notaron que las distribuciones empíricas de los precios en las bolsas de valores no se comportaban según las predicciones de los manuales de economía, sino que seguían patrones matemáticos idénticos a los cambios de fase, la magnetización de materiales y la difusión turbulenta.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Por qué la campana de Gauss no predice adecuadamente las crisis financieras?</summary>
+          <p>
+            La distribución normal (gaussiana) asume que las desviaciones estándar extremas (&gt; 5&sigma;) tienen una probabilidad infinitesimal, equivalente a ocurrir una vez en la edad del universo. Sin embargo, en los mercados reales, colapsos como el Lunes Negro de 1987, la quiebra de Lehman Brothers en 2008 o la caída por COVID-19 en 2020 demuestran que las fluctuaciones extremas ocurren constantemente. La econofísica describe esto mediante distribuciones de colas pesadas (leyes de Pareto-Lévy).
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Cuál es la diferencia entre la econofísica y la econometría cuantitativa?</summary>
+          <p>
+            La econometría estándar suele construir modelos fundamentados en el axioma de que el mercado tiende al equilibrio perfecto y que los inversores actúan de forma neutral e independiente. La econofísica adopta un enfoque inductivo derivado de las ciencias naturales: analiza volúmenes masivos de datos tick-by-tick y busca leyes universales de escala, reconociendo la existencia de memoria no lineal, retroalimentaciones y transiciones de fase.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Qué herramientas matemáticas y computacionales se emplean en la econofísica?</summary>
+          <p>
+            Se utilizan procesos estocásticos (ecuaciones diferenciales estocásticas de Fokker-Planck y Langevin), mecánica estadística cuántica y clásica, modelos de percolación, entropía de información de Shannon y modelos basados en agentes (Agent-Based Models, ABM) implementados habitualmente en Python, C++ o Julia.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Puede la física predecir el momento exacto de un desplome de la bolsa?</summary>
+          <p>
+            No de forma determinista para un segundo exacto, ya que los mercados son sistemas dinámicos con libre albedrío. No obstante, físicos como Didier Sornette han demostrado que los grandes colapsos son precedidos por burbujas especulativas caracterizadas por aceleraciones super-exponenciales y oscilaciones log-periódicas, lo que permite evaluar el riesgo de inestabilidad crítica de forma similar a los terremotos o la fractura de materiales.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECCIÓN REFERENCIAS ACADÉMICAS -->
+    <section id="referencias" class="references-section">
+      <div class="section-tag">LITERATURA CIENTÍFICA</div>
+      <h2>Lecturas y Textos Fundacionales de Referencia</h2>
+      <p class="lead-p">Bibliografía esencial recomendada para profundizar en el estudio formal de la econofísica y las dinámicas complejas.</p>
+
+      <div class="references-grid">
+        <div class="ref-card">
+          <span class="ref-type">LIBRO SEMINAL · 1999</span>
+          <h4>An Introduction to Econophysics: Correlations and Complexity in Finance</h4>
+          <span class="ref-authors">Rosario N. Mantegna &amp; H. Eugene Stanley — Cambridge University Press</span>
+          <p class="ref-desc">El primer libro de texto formal sobre la disciplina. Aborda los paseos aleatorios, la distribución de retornos, leyes de potencias y matrices de correlación aleatoria en acciones bursátiles.</p>
+        </div>
+
+        <div class="ref-card">
+          <span class="ref-type">MONOGRAFÍA · 2003</span>
+          <h4>Theory of Financial Risk and Derivative Pricing: From Statistical Physics to Risk Management</h4>
+          <span class="ref-authors">Jean-Philippe Bouchaud &amp; Marc Potters — Cambridge University Press</span>
+          <p class="ref-desc">Obra clave que examina el riesgo real alejado del modelo de Black-Scholes, introduciendo distribuciones truncadas y la teoría de matrices aleatorias (RMT) aplicada a portafolios.</p>
+        </div>
+
+        <div class="ref-card">
+          <span class="ref-type">COMPLEJIDAD · 2003</span>
+          <h4>Why Stock Markets Crash: Critical Events in Complex Financial Systems</h4>
+          <span class="ref-authors">Didier Sornette — Princeton University Press</span>
+          <p class="ref-desc">Estudio riguroso que compara los pánicos financieros con sismos geológicos y fallos de materiales mediante el concepto de criticalidad autoorganizada y leyes de potencia log-periódicas.</p>
+        </div>
+
+        <div class="ref-card">
+          <span class="ref-type">GEOMETRÍA FRACTAL · 2004</span>
+          <h4>The (Mis)Behavior of Markets: A Fractal View of Risk, Ruin, and Reward</h4>
+          <span class="ref-authors">Benoit B. Mandelbrot &amp; Richard L. Hudson — Basic Books</span>
+          <p class="ref-desc">Crítica magistral a la hipótesis de mercados eficientes por parte del creador de la geometría fractal, proponiendo modelos multifractales para medir la rugosidad del tiempo financiero.</p>
+        </div>
+      </div>
+
+      <!-- SOBRE EL PROYECTO Y AUTOR (E-E-A-T GOOGLE) -->
+      <div class="author-box">
+        <div>
+          <h3>Entropía: Laboratorio de Código Abierto</h3>
+          <p>
+            Plataforma educativa y científica creada y mantenida por <strong>Jhimy Sayas Parodi</strong>. Diseñada para fomentar el estudio riguroso, la simulación interactiva y el aprendizaje colaborativo entre la física computacional y la teoría económica moderna.
+          </p>
+        </div>
+        <div class="author-badge">
+          <span class="author-chip">CIENCIA ABIERTA · 2026</span>
+          <a class="button" href="https://github.com/JhimyJSP" target="_blank" rel="noopener noreferrer" style="font-size:11px;padding:10px 16px;">Ver GitHub de Jhimy ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN RUTA DE APRENDIZAJE -->
+    <section id="ruta" class="journey">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">04 / RUTA FORMATIVA</div>
+          <h2>La curiosidad es el punto de partida<span>.</span></h2>
+        </div>
+        <span class="journey-label">ITINERARIO GRADUAL</span>
+      </div>
+      <div class="steps">
+        <button data-step="0">
+          <span>01</span>
+          <small>PRIMEROS PASOS</small>
+          <h3>Construir las bases</h3>
+          <p>Probabilidad, procesos estocásticos, cálculo diferencial y Python para análisis cuantitativo.</p>
+          <b>Marcar como completado ○</b>
+        </button>
+        <button data-step="1">
+          <span>02</span>
+          <small>CONECTAR IDEAS</small>
+          <h3>Modelos de Sistemas Complejos</h3>
+          <p>Paseos aleatorios, difusión anómala, modelos de Ising y redes interbancarias.</p>
+          <b>Marcar como completado ○</b>
+        </button>
+        <button data-step="2">
+          <span>03</span>
+          <small>HACER CIENCIA</small>
+          <h3>Tu Primera Investigación</h3>
+          <p>Planteamiento de hipótesis empírica, obtención de datos reales y ajuste de distribuciones.</p>
+          <b>Marcar como completado ○</b>
+        </button>
+      </div>
+    </section>
+
+    <footer>
+      <a class="brand" href="#inicio">∿ entropía.</a>
+      <span>Laboratorio de Econofísica y Complejidad · Desarrollado por Jhimy Sayas Parodi</span>
+      <a href="#inicio">Volver al inicio ↑</a>
+    </footer>
+  </main>
+
+  <dialog id="editor">
+    <form id="entryForm">
+      <div class="modal-head">
+        <span class="eyebrow">TU SIGUIENTE PREGUNTA</span>
+        <button type="button" class="close" aria-label="Cerrar">×</button>
+      </div>
+      <h2>Nueva investigación</h2>
+      <label>Título
+        <input name="title" required maxlength="120" placeholder="¿Qué quieres descubrir o contrastar?">
+      </label>
+      <div class="form-row">
+        <label>Línea de exploración
+          <select name="topic">
+            <option>Mercados</option>
+            <option>Redes</option>
+            <option>Estadística</option>
+          </select>
+        </label>
+        <label>Estado
+          <select name="status">
+            <option>Idea inicial</option>
+            <option>En progreso</option>
+            <option>Completada</option>
+          </select>
+        </label>
+      </div>
+      <label>Resumen y notas científicas
+        <textarea name="notes" rows="5" required placeholder="Tu pregunta de investigación, hipótesis, metodología estadística o hallazgos…"></textarea>
+      </label>
+      <label>Documento adjunto (opcional, hasta 10 MB)
+        <input name="file" type="file" accept=".pdf,.txt,.md,.csv,.ipynb,.docx">
+      </label>
+      <p class="storage-note">Se guardará de forma privada en el almacenamiento local de este navegador.</p>
+      <p id="formError" role="alert"></p>
+      <button class="button" type="submit">Guardar investigación ↗</button>
+    </form>
+  </dialog>
+
+  <dialog id="detail">
+    <div class="modal-head">
+      <span class="eyebrow" id="detailTopic"></span>
+      <button class="close" aria-label="Cerrar">×</button>
+    </div>
+    <h2 id="detailTitle"></h2>
+    <p id="detailMeta"></p>
+    <p id="detailNotes"></p>
+    <div id="detailActions"></div>
+  </dialog>
+
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
