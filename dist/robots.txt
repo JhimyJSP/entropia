@@ -1,0 +1,5 @@
+# robots.txt para Entropía - Laboratorio de Econofísica
+User-agent: *
+Allow: /
+
+Sitemap: https://jhimyjsp.github.io/entropia/sitemap.xml
