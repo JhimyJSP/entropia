@@ -83,10 +83,6 @@
       <span id="audio-icon">🔊</span>
       <span id="audio-text" class="mono">Audio</span>
     </button>
-    <button class="ambient-btn" id="btn-music-toggle" title="Música ambiental relajante" aria-label="Música ambiental">
-      <span>♫</span>
-      <span class="mono">Música</span>
-    </button>
     <button class="ambient-btn" id="btn-accessible-toggle" title="Modo lectura 2D accesible (sin WebGL)" aria-label="Modo lectura plana">
       <span>📖</span>
       <span class="mono">Modo 2D</span>
@@ -159,6 +155,7 @@
   <!-- LIBRERÍAS EXTERNAS: THREE.JS Y KATEX -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
   <!-- MÓDULOS DEL PROYECTO -->
   <script src="book-content.js"></script>
@@ -172,7 +169,6 @@
       // Controles de audio
       const muteBtn = document.getElementById('btn-audio-mute');
       const audioIcon = document.getElementById('audio-icon');
-      const musicBtn = document.getElementById('btn-music-toggle');
 
       if (muteBtn && window.bookAudio) {
         if (window.bookAudio.isMuted) {
@@ -183,14 +179,6 @@
           const muted = window.bookAudio.toggleMute();
           audioIcon.textContent = muted ? '🔇' : '🔊';
           muteBtn.classList.toggle('muted', muted);
-        };
-      }
-
-      if (musicBtn && window.bookAudio) {
-        musicBtn.classList.toggle('active', window.bookAudio.musicEnabled);
-        musicBtn.onclick = () => {
-          const enabled = window.bookAudio.toggleMusic();
-          musicBtn.classList.toggle('active', enabled);
         };
       }
 

@@ -20,8 +20,8 @@ window.ENTROPIA_BOOK = {
       description: "Del equilibrio estático neoclásico a los sistemas dinámicos fuera del equilibrio.",
       icon: "∿",
       chapters: [
-        { id: "ch-0-1", pageStart: 2, title: "¿Qué es la Econofísica?", duration: "6 min" },
-        { id: "ch-0-2", pageStart: 4, title: "Economía Clásica vs. Econofísica Moderna", duration: "8 min" }
+        { id: "ch-0-1", pageStart: 3, title: "¿Qué es la Econofísica?", duration: "6 min" },
+        { id: "ch-0-2", pageStart: 5, title: "Economía Clásica vs. Econofísica Moderna", duration: "8 min" }
       ]
     },
     {
@@ -31,8 +31,8 @@ window.ENTROPIA_BOOK = {
       description: "Por qué la campana de Gauss ignora las crisis y cómo las leyes de potencias explican los cisnes negros.",
       icon: "▲",
       chapters: [
-        { id: "ch-1-1", pageStart: 6, title: "Colas Pesadas (Fat Tails) y Leyes de Potencia", duration: "10 min" },
-        { id: "ch-1-2", pageStart: 8, title: "Memoria Larga, Fractales y Exponente de Hurst", duration: "9 min" }
+        { id: "ch-1-1", pageStart: 7, title: "Colas Pesadas (Fat Tails) y Leyes de Potencia", duration: "10 min" },
+        { id: "ch-1-2", pageStart: 9, title: "Memoria Larga, Fractales y Exponente de Hurst", duration: "9 min" }
       ]
     },
     {
@@ -42,8 +42,8 @@ window.ENTROPIA_BOOK = {
       description: "Simulaciones numéricas de paseos aleatorios y visualizaciones de redes tridimensionales.",
       icon: "✦",
       chapters: [
-        { id: "ch-2-1", pageStart: 10, title: "Simulador 2D: Paseo Aleatorio Discreto", duration: "12 min", hasSimulation: true },
-        { id: "ch-2-2", pageStart: 12, title: "Visualizador 3D: Red Cuántica de Agentes", duration: "10 min", has3D: true }
+        { id: "ch-2-1", pageStart: 11, title: "Simulador 2D: Paseo Aleatorio Discreto", duration: "12 min", hasSimulation: true },
+        { id: "ch-2-2", pageStart: 13, title: "Visualizador 3D: Red Cuántica de Agentes", duration: "10 min", has3D: true }
       ]
     },
     {
@@ -53,7 +53,7 @@ window.ENTROPIA_BOOK = {
       description: "Topología de contagio interbancario, efecto dominó y modelos basados en agentes.",
       icon: "☊",
       chapters: [
-        { id: "ch-3-1", pageStart: 14, title: "Grafos Libres de Escala y Resiliencia Financiera", duration: "11 min" },
+        { id: "ch-3-1", pageStart: 15, title: "Grafos Libres de Escala y Resiliencia Financiera", duration: "11 min" },
         { id: "ch-3-2", pageStart: 16, title: "Modelos Basados en Agentes (ABM) e Ising", duration: "10 min" }
       ]
     },
@@ -64,7 +64,7 @@ window.ENTROPIA_BOOK = {
       description: "Gestión de hipótesis, datos empíricos y notas guardadas localmente en el navegador.",
       icon: "📖",
       chapters: [
-        { id: "ch-4-1", pageStart: 18, title: "Bitácora de Investigaciones (IndexedDB)", duration: "Interactiva" }
+        { id: "ch-4-1", pageStart: 17, title: "Bitácora de Investigaciones (IndexedDB)", duration: "Interactiva" }
       ]
     },
     {
@@ -74,8 +74,8 @@ window.ENTROPIA_BOOK = {
       description: "Consolidación metacognitiva y resolución de problemas fundamentales de econofísica.",
       icon: "❓",
       chapters: [
-        { id: "ch-5-1", pageStart: 20, title: "FAQ Científica con Respuestas Detalladas", duration: "8 min" },
-        { id: "ch-5-2", pageStart: 22, title: "Autoevaluación de Aprendizaje Activo", duration: "7 min", hasQuiz: true }
+        { id: "ch-5-1", pageStart: 19, title: "FAQ Científica con Respuestas Detalladas", duration: "8 min" },
+        { id: "ch-5-2", pageStart: 21, title: "Autoevaluación de Aprendizaje Activo", duration: "7 min", hasQuiz: true }
       ]
     },
     {
@@ -85,8 +85,8 @@ window.ENTROPIA_BOOK = {
       description: "Bibliografía canónica de investigación y mapa gradual de competencias.",
       icon: "📚",
       chapters: [
-        { id: "ch-6-1", pageStart: 24, title: "Lecturas y Textos de Referencia Canónica", duration: "7 min" },
-        { id: "ch-6-2", pageStart: 26, title: "Itinerario de Aprendizaje y Competencias", duration: "Práctica" }
+        { id: "ch-6-1", pageStart: 23, title: "Lecturas y Textos de Referencia Canónica", duration: "7 min" },
+        { id: "ch-6-2", pageStart: 25, title: "Itinerario de Aprendizaje y Competencias", duration: "Práctica" }
       ]
     }
   ],
@@ -94,7 +94,7 @@ window.ENTROPIA_BOOK = {
   // Páginas reales del libro (cada spread corresponde a p y p+1)
   // Página 0: Portada interior / Dedicatoria
   // Página 1: Índice general / Tabla de contenidos
-  // Páginas 2-27: Contenido científico estructurado
+  // Páginas 3-26: Contenido científico estructurado
   pages: [
     // PÁGINA 0: Frontispicio
     {
@@ -140,17 +140,17 @@ window.ENTROPIA_BOOK = {
                 <span class="toc-mod-badge">MOD 00</span>
                 <strong>Fundamentos y Metodología</strong>
               </div>
-              <a href="#p-2" class="toc-item" data-goto="2">
+              <a href="#p-3" class="toc-item" data-goto="3">
                 <span class="toc-ch-num">0.1</span>
                 <span class="toc-ch-name">¿Qué es la Econofísica?</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 02</span>
+                <span class="toc-page-num">Pág. 03</span>
               </a>
-              <a href="#p-4" class="toc-item" data-goto="4">
+              <a href="#p-5" class="toc-item" data-goto="5">
                 <span class="toc-ch-num">0.2</span>
                 <span class="toc-ch-name">Economía Clásica vs. Econofísica</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 04</span>
+                <span class="toc-page-num">Pág. 05</span>
               </a>
             </div>
 
@@ -159,17 +159,17 @@ window.ENTROPIA_BOOK = {
                 <span class="toc-mod-badge">MOD 01</span>
                 <strong>Fenómenos Estocásticos y Colas Pesadas</strong>
               </div>
-              <a href="#p-6" class="toc-item" data-goto="6">
+              <a href="#p-7" class="toc-item" data-goto="7">
                 <span class="toc-ch-num">1.1</span>
                 <span class="toc-ch-name">Colas Pesadas y Leyes de Potencia</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 06</span>
+                <span class="toc-page-num">Pág. 07</span>
               </a>
-              <a href="#p-8" class="toc-item" data-goto="8">
+              <a href="#p-9" class="toc-item" data-goto="9">
                 <span class="toc-ch-num">1.2</span>
                 <span class="toc-ch-name">Memoria Larga, Fractales y Hurst</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 08</span>
+                <span class="toc-page-num">Pág. 09</span>
               </a>
             </div>
 
@@ -178,17 +178,17 @@ window.ENTROPIA_BOOK = {
                 <span class="toc-mod-badge">MOD 02</span>
                 <strong>Laboratorio Experimental de Difusión</strong>
               </div>
-              <a href="#p-10" class="toc-item" data-goto="10">
+              <a href="#p-11" class="toc-item" data-goto="11">
                 <span class="toc-ch-num">2.1</span>
                 <span class="toc-ch-name">Simulador 2D: Paseo Aleatorio Discreto</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 10</span>
+                <span class="toc-page-num">Pág. 11</span>
               </a>
-              <a href="#p-12" class="toc-item" data-goto="12">
+              <a href="#p-13" class="toc-item" data-goto="13">
                 <span class="toc-ch-num">2.2</span>
                 <span class="toc-ch-name">Visualizador 3D: Red Cuántica de Agentes</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 12</span>
+                <span class="toc-page-num">Pág. 13</span>
               </a>
             </div>
           </div>
@@ -216,11 +216,11 @@ window.ENTROPIA_BOOK = {
                 <span class="toc-mod-badge">MOD 03</span>
                 <strong>Redes Complejas y Riesgo Sistémico</strong>
               </div>
-              <a href="#p-14" class="toc-item" data-goto="14">
+              <a href="#p-15" class="toc-item" data-goto="15">
                 <span class="toc-ch-num">3.1</span>
                 <span class="toc-ch-name">Grafos Libres de Escala y Resiliencia</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 14</span>
+                <span class="toc-page-num">Pág. 15</span>
               </a>
               <a href="#p-16" class="toc-item" data-goto="16">
                 <span class="toc-ch-num">3.2</span>
@@ -235,11 +235,11 @@ window.ENTROPIA_BOOK = {
                 <span class="toc-mod-badge">MOD 04</span>
                 <strong>Archivo y Cuaderno Personal</strong>
               </div>
-              <a href="#p-18" class="toc-item" data-goto="18">
+              <a href="#p-17" class="toc-item" data-goto="17">
                 <span class="toc-ch-num">4.1</span>
                 <span class="toc-ch-name">Bitácora de Investigaciones (IndexedDB)</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 18</span>
+                <span class="toc-page-num">Pág. 17</span>
               </a>
             </div>
 
@@ -248,17 +248,17 @@ window.ENTROPIA_BOOK = {
                 <span class="toc-mod-badge">MOD 05</span>
                 <strong>Preguntas Clave y Autoevaluación</strong>
               </div>
-              <a href="#p-20" class="toc-item" data-goto="20">
+              <a href="#p-19" class="toc-item" data-goto="19">
                 <span class="toc-ch-num">5.1</span>
                 <span class="toc-ch-name">FAQ Científica Detallada</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 20</span>
+                <span class="toc-page-num">Pág. 19</span>
               </a>
-              <a href="#p-22" class="toc-item" data-goto="22">
+              <a href="#p-21" class="toc-item" data-goto="21">
                 <span class="toc-ch-num">5.2</span>
                 <span class="toc-ch-name">Autoevaluación de Aprendizaje Activo</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 22</span>
+                <span class="toc-page-num">Pág. 21</span>
               </a>
             </div>
 
@@ -267,17 +267,17 @@ window.ENTROPIA_BOOK = {
                 <span class="toc-mod-badge">MOD 06</span>
                 <strong>Literatura Seminal y Ruta</strong>
               </div>
-              <a href="#p-24" class="toc-item" data-goto="24">
+              <a href="#p-23" class="toc-item" data-goto="23">
                 <span class="toc-ch-num">6.1</span>
                 <span class="toc-ch-name">Textos y Literatura Canónica</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 24</span>
+                <span class="toc-page-num">Pág. 23</span>
               </a>
-              <a href="#p-26" class="toc-item" data-goto="26">
+              <a href="#p-25" class="toc-item" data-goto="25">
                 <span class="toc-ch-num">6.2</span>
                 <span class="toc-ch-name">Ruta Formativa de Competencias</span>
                 <span class="toc-dots"></span>
-                <span class="toc-page-num">Pág. 26</span>
+                <span class="toc-page-num">Pág. 25</span>
               </a>
             </div>
           </div>

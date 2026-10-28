@@ -314,11 +314,10 @@ class Book3DViewer {
     if (this.isOpen || this.isAnimating) return;
     this.isAnimating = true;
 
-    // Disparar audio inmersivo procedural
+    // Disparar audio inmersivo procedural (solo efectos físicos)
     if (window.bookAudio) {
       window.bookAudio.initContext();
       window.bookAudio.playCoverOpen();
-      window.bookAudio.startAmbientMusic();
     }
 
     // Ocultar invitación flotante

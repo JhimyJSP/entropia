@@ -133,7 +133,11 @@ class LearningEngine {
 
   // Renderizado dinámico de LaTeX con KaTeX
   renderMathEquations() {
-    if (!window.katex) return;
+    if (!window.katex) {
+      console.warn('KaTeX no está disponible; no se pueden renderizar las ecuaciones.');
+      return;
+    }
+
     document.querySelectorAll('.katex-eq').forEach(el => {
       const tex = el.getAttribute('data-tex');
       if (tex && !el.classList.contains('katex-rendered')) {
@@ -147,6 +151,21 @@ class LearningEngine {
           console.warn('Error renderizando KaTeX:', e);
         }
       }
+    });
+
+    if (!window.renderMathInElement) {
+      console.warn('El auto-render de KaTeX no está disponible; las ecuaciones en línea no se renderizarán.');
+      return;
+    }
+
+    [this.leftPageEl, this.rightPageEl].forEach(page => {
+      window.renderMathInElement(page, {
+        delimiters: [
+          { left: '\\[', right: '\\]', display: true },
+          { left: '\\(', right: '\\)', display: false }
+        ],
+        throwOnError: false
+      });
     });
   }
 
@@ -200,6 +219,7 @@ class LearningEngine {
 
   updateProgress() {
     const percent = Math.min(100, Math.round((this.currentPage / (this.totalPages - 1)) * 100));
+    document.body.classList.toggle('is-reading', this.currentPage > 2);
     if (this.progressBar) {
       this.progressBar.style.width = `${percent}%`;
     }

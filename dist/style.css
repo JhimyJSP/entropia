@@ -301,6 +301,20 @@ p {
   margin: 10px 0;
 }
 
+.page-sheet p,
+.page-sheet li,
+.page-sheet blockquote,
+.page-sheet .science-quote {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.frontispiece-page p,
+.page-sheet .book-inner-subtitle,
+.page-sheet .signature {
+  text-align: center;
+}
+
 .lead-p {
   font-size: 14.5px;
   color: #cbd5e1;
@@ -1252,6 +1266,13 @@ p {
 body.book-is-open .book-bottom-dock {
   opacity: 1;
   pointer-events: auto;
+}
+
+body.is-reading .ambient-controls,
+body.is-reading #dock-btn-toc,
+body.is-reading #dock-btn-close,
+body.is-reading .reading-progress-track {
+  display: none;
 }
 
 .dock-btn {
