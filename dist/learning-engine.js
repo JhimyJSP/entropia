@@ -68,7 +68,8 @@ class LearningEngine {
     // Spread 2: Página 3 (izq) y Página 4 (der) -> Cap 0.1
     let leftIdx, rightIdx;
 
-    if (this.isMobile) {
+    const singlePage = this.isSinglePageMode();
+    if (singlePage) {
       // En móvil se muestra solo una página a la vez
       leftIdx = this.currentPage;
       rightIdx = null;
@@ -120,6 +121,7 @@ class LearningEngine {
   injectPageContent(element, pageData) {
     element.innerHTML = pageData.html;
     element.setAttribute('data-page-num', pageData.number);
+    element.scrollTop = 0;
   }
 
   postRender() {
@@ -140,7 +142,7 @@ class LearningEngine {
     }
 
     document.querySelectorAll('.katex-eq').forEach(el => {
-      const tex = el.getAttribute('data-tex');
+      const tex = el.getAttribute('data-tex')?.replace(/%[^\n]*/g, '').trim();
       if (tex && !el.classList.contains('katex-rendered')) {
         try {
           window.katex.render(tex, el, {
@@ -200,19 +202,20 @@ class LearningEngine {
     }
 
     this.currentPage = pageNum;
+    window.scrollTo(0, 0);
     window.location.hash = `#p-${this.currentPage}`;
     this.renderCurrentSpread(true);
   }
 
   nextPage() {
-    const step = this.isMobile ? 1 : 2;
+    const step = this.isSinglePageMode() ? 1 : 2;
     if (this.currentPage + step < this.totalPages) {
       this.goToPage(this.currentPage + step);
     }
   }
 
   prevPage() {
-    const step = this.isMobile ? 1 : 2;
+    const step = this.isSinglePageMode() ? 1 : 2;
     if (this.currentPage - step >= 1) {
       this.goToPage(this.currentPage - step);
     }
@@ -227,7 +230,7 @@ class LearningEngine {
       this.progressBar.style.width = `${percent}%`;
     }
     if (this.pageIndicator) {
-      if (this.isMobile) {
+      if (this.isSinglePageMode()) {
         this.pageIndicator.textContent = `Pág. ${this.currentPage} de ${this.totalPages - 1}`;
       } else {
         const pLeft = this.currentPage % 2 === 1 ? this.currentPage : this.currentPage - 1;
@@ -235,6 +238,10 @@ class LearningEngine {
         this.pageIndicator.textContent = `Págs. ${pLeft}–${pRight} de ${this.totalPages - 1}`;
       }
     }
+  }
+
+  isSinglePageMode() {
+    return this.isMobile || document.body.classList.contains('accessible-mode');
   }
 
   setupKeyboard() {

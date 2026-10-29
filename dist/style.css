@@ -1644,13 +1644,6 @@ body.book-is-open .book-bottom-dock {
   pointer-events: auto;
 }
 
-body.is-reading .ambient-controls,
-body.is-reading #dock-btn-toc,
-body.is-reading #dock-btn-close,
-body.is-reading .reading-progress-track {
-  display: none;
-}
-
 .dock-btn {
   background: none;
   border: none;
@@ -1731,8 +1724,29 @@ body.accessible-mode .page-sheet {
   border-bottom: 1px solid var(--border-subtle);
 }
 
+body.accessible-mode .open-book-viewport {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+body.accessible-mode .book-bottom-dock {
+  position: fixed;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 40;
+}
+
 /* 8. RESPONSIVE (MÓVIL Y TABLET) */
 @media (max-width: 900px) {
+  .ambient-controls {
+    top: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+  .ambient-btn {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
   .open-book-viewport {
     padding: 20px 10px 70px;
   }
@@ -1756,6 +1770,9 @@ body.accessible-mode .page-sheet {
 }
 
 @media (max-width: 600px) {
+  body.accessible-mode .open-book-viewport {
+    padding: 76px 10px 76px;
+  }
   .book-bottom-dock {
     padding: 6px 12px;
     gap: 8px;

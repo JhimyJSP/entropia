@@ -22,7 +22,12 @@
   })[char]);
 
   function inline(text) {
-    return escapeHTML(text)
+    const withMath = text.replace(/\(([^()\n]+)\)/g, (match, expression) =>
+      /\\[a-zA-Z]+|[_^=±∑√≤≥≈]|(?:\d+\s*[+\-*/])/.test(expression)
+        ? `\\(${expression}\\)`
+        : match
+    );
+    return escapeHTML(withMath)
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>')
       .replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -71,12 +76,34 @@
       if (trimmed === '[' || trimmed === '\\[') {
         flushParagraph(); flushList(); flushQuote(); flushTable();
         const equation = [];
-        index += 1;
-        while (index < lines.length && lines[index].trim() !== ']' && lines[index].trim() !== '\\]') {
-          equation.push(lines[index]);
-          index += 1;
+        let closed = false;
+        for (let cursor = index + 1; cursor < lines.length; cursor += 1) {
+          const equationLine = lines[cursor].trim();
+          if (/^\\?\](?:[.,;:]*)$/.test(equationLine)) {
+            index = cursor;
+            closed = true;
+            break;
+          }
+          if (/^#{1,3}\s/.test(equationLine)) {
+            index = cursor - 1;
+            break;
+          }
+          equation.push(lines[cursor]);
+          index = cursor;
         }
-        html.push(`<div class="katex-eq" data-tex="${escapeHTML(equation.join('\n'))}"></div>`);
+        if (equation.length) {
+          html.push(`<div class="katex-eq" data-tex="${escapeHTML(equation.join('\n'))}"${closed ? '' : ' data-unclosed="true"'}></div>`);
+        }
+        continue;
+      }
+      if (/^\\?\](?:[.,;:]*)$/.test(trimmed)) {
+        const equation = paragraph.join('\n').trim();
+        if (equation && (/\\[a-zA-Z]+/.test(equation) || /[=+*/^_]/.test(equation) || /\(\s*[+-]?\d/.test(equation))) {
+          paragraph = [];
+          html.push(`<div class="katex-eq" data-tex="${escapeHTML(equation.replace(/[.;,]+$/, ''))}"></div>`);
+        } else {
+          flushParagraph();
+        }
         continue;
       }
       if (!trimmed) {

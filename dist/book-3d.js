@@ -13,7 +13,7 @@ class Book3DViewer {
     this.openProgress = 0; // 0: cerrado, 1: abierto
     
     // Estado del libro
-    this.targetCameraPos = { x: 0, y: 3.8, z: 5.0 };
+    this.targetCameraPos = { x: 0, y: 5.0, z: 3.6 };
     this.targetCameraLook = { x: 0, y: 0.1, z: 0 };
     this.currentCameraPos = { ...this.targetCameraPos };
     this.currentCameraLook = { ...this.targetCameraLook };
@@ -391,7 +391,7 @@ class Book3DViewer {
     const targetAngle = 0;
 
     const startCamPos = { ...this.camera.position };
-    const endCamPos = { x: 0, y: 3.8, z: 5.0 };
+    const endCamPos = { x: 0, y: 5.0, z: 3.6 };
 
     const startCamLook = { x: 0, y: 0.05, z: 0 };
     const endCamLook = { x: 0, y: 0.1, z: 0 };
