@@ -38,6 +38,8 @@ entropia/
 │   ├── index.html        # Página principal con optimización SEO y datos estructurados
 │   ├── style.css         # Estilos visuales
 │   ├── app.js            # Lógica interactiva, simulaciones y canvas
+│   ├── chapter-1-data.js # Contenido del capítulo de sistemas, mercados y observación
+│   ├── chapter-1-renderer.js # Renderizado del capítulo y sus simulaciones
 │   ├── robots.txt        # Instrucciones para motores de búsqueda (Google)
 │   └── sitemap.xml       # Mapa del sitio para indexación rápida
 ├── .github/

@@ -27,6 +27,7 @@ class LearningEngine {
     this.userEntries = [];
 
     this.init();
+    this.updateProgress(false);
   }
 
   init() {
@@ -217,9 +218,11 @@ class LearningEngine {
     }
   }
 
-  updateProgress() {
+  updateProgress(updateReadingState = true) {
     const percent = Math.min(100, Math.round((this.currentPage / (this.totalPages - 1)) * 100));
-    document.body.classList.toggle('is-reading', this.currentPage > 2);
+    if (updateReadingState) {
+      document.body.classList.toggle('is-reading', this.currentPage > 2);
+    }
     if (this.progressBar) {
       this.progressBar.style.width = `${percent}%`;
     }
@@ -297,6 +300,8 @@ class LearningEngine {
 
   // SIMULADOR 2D: PASEO ALEATORIO DISCRETO
   initSimulationsIfNeeded() {
+    if (window.ChapterOne) window.ChapterOne.init();
+
     const chartCanvas = document.getElementById('book-chart');
     if (chartCanvas) {
       const volSlider = document.getElementById('book-vol');
