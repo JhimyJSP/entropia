@@ -1,8 +1,8 @@
-# Entropía — Laboratorio de Econofísica
+# ML Quantitative Researcher
 
-> **La economía vista desde las leyes y herramientas de la física estadística y los sistemas complejos.**
+> **Cuaderno de investigación cuantitativa aplicada a los mercados financieros.**
 
-Bienvenido a **Entropía**, una plataforma interactiva diseñada para explorar, experimentar y documentar investigaciones sobre **econofísica**, dinámicas de mercados financieros y redes complejas.
+Bienvenido a **ML Quantitative Researcher**, un cuaderno interactivo para estudiar, experimentar y documentar investigación cuantitativa en mercados financieros.
 
 ---
 

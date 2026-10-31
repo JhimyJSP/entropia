@@ -8,8 +8,11 @@
 class LearningEngine {
   constructor() {
     this.bookData = window.ENTROPIA_BOOK;
-    this.currentPage = parseInt(localStorage.getItem('entropia-last-page') || '1', 10);
     this.totalPages = this.bookData.pages.length;
+    const savedPage = parseInt(localStorage.getItem('entropia-last-page') || '1', 10);
+    this.currentPage = Number.isInteger(savedPage)
+      ? Math.min(Math.max(savedPage, 1), this.totalPages - 1)
+      : 1;
     this.isMobile = window.innerWidth < 900;
     
     // Contenedores del DOM

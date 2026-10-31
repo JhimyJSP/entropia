@@ -119,7 +119,7 @@ class Book3DViewer {
     leatherCanvas.width = 512;
     leatherCanvas.height = 512;
     const lctx = leatherCanvas.getContext('2d');
-    lctx.fillStyle = '#060a12';
+    lctx.fillStyle = '#10233b';
     lctx.fillRect(0, 0, 512, 512);
     
     // Grano fino sutil
@@ -140,11 +140,13 @@ class Book3DViewer {
     lctx.fillStyle = '#ffffff';
     lctx.font = 'bold 36px "Plus Jakarta Sans", sans-serif';
     lctx.textAlign = 'center';
-    lctx.fillText('ENTROPÍA', 256, 210);
+    lctx.font = 'bold 26px "Plus Jakarta Sans", sans-serif';
+    lctx.fillText('ML QUANTITATIVE', 256, 202);
+    lctx.fillText('RESEARCHER', 256, 238);
 
     lctx.fillStyle = '#22d3ee';
-    lctx.font = '500 13px "JetBrains Mono", monospace';
-    lctx.fillText('LABORATORIO DE ECONOFÍSICA', 256, 245);
+    lctx.font = '500 12px "JetBrains Mono", monospace';
+    lctx.fillText('CUADERNO DE INVESTIGACIÓN', 256, 270);
 
     // Símbolo onda
     lctx.font = '54px "Plus Jakarta Sans"';
@@ -152,20 +154,20 @@ class Book3DViewer {
 
     lctx.fillStyle = 'rgba(255,255,255,0.4)';
     lctx.font = '11px "JetBrains Mono", monospace';
-    lctx.fillText('ARCHIVUM EXPERIMENTALE · 2026', 256, 440);
+    lctx.fillText('VERSION 2026.10.31', 256, 440);
 
     const leatherTexture = new THREE.CanvasTexture(leatherCanvas);
 
     // Material de la cubierta (Cuero azul/negro técnico con brillo metálico)
     const coverMaterial = new THREE.MeshStandardMaterial({
-      color: 0x080f1a,
+      color: 0xffffff,
       roughness: 0.35,
       metalness: 0.15,
       map: leatherTexture
     });
 
     const plainCoverMaterial = new THREE.MeshStandardMaterial({
-      color: 0x070c16,
+      color: 0x142238,
       roughness: 0.45,
       metalness: 0.1
     });

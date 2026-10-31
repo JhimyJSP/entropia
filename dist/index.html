@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>ML Quantitative Research</title>
+  <title>ML Quantitative Researcher</title>
   <meta name="description" content="Plataforma educativa inmersiva en formato de cuaderno científico 3D interactivo. Estudia econofísica, paseos aleatorios, colas pesadas, leyes de potencia y modelos de redes complejas.">
   <meta name="keywords" content="econofísica, econofisica, cuaderno 3D, simulación estocástica, paseo aleatorio, leyes de potencia, fractales, Benoit Mandelbrot, sistemas complejos, física estadística">
   <meta name="author" content="Jhimy Sayas Parodi">
@@ -13,22 +13,22 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ML QUANTITATIVE RESEARCH — Cuaderno de Econofísica">
-  <meta property="og:title" content="ML QUANTITATIVE RESEARCH | Cuaderno Científico 3D de Econofísica">
+  <meta property="og:site_name" content="ML Quantitative Researcher">
+  <meta property="og:title" content="ML Quantitative Researcher | Cuaderno de Investigación">
   <meta property="og:description" content="Explora un cuaderno científico tridimensional con páginas interactivas, fórmulas KaTeX y simulaciones numéricas de sistemas complejos.">
   <meta property="og:url" content="https://jhimyjsp.github.io/entropia/">
   <meta property="og:locale" content="es_ES">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ML QUANTITATIVE RESEARCH | Cuaderno Científico 3D de Econofísica">
+  <meta name="twitter:title" content="ML Quantitative Researcher | Cuaderno de Investigación">
   <meta name="twitter:description" content="Laboratorio de econofísica inmersivo con simulaciones 2D/3D y cuaderno interactivo.">
 
   <!-- KaTeX CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" crossorigin="anonymous">
 
   <!-- Estilos del Cuaderno 3D y Plataforma -->
-  <link rel="stylesheet" href="style.css?v=chapter2">
+  <link rel="stylesheet" href="style.css?v=20261031-4">
 
   <!-- Schema.org estructurado (WebApplication + FAQPage) -->
   <script type="application/ld+json">
@@ -100,16 +100,21 @@
 
   <!-- 3. INVITACIÓN VISUAL INICIAL (SOLO VISIBLE CON CUADERNO CERRADO) -->
   <section class="book-invitation-overlay" id="book-invite" aria-live="polite">
-    <div class="invite-badge">
-      <span class="invite-pulse"></span>
-      <span>CUADERNO CIENTÍFICO 3D</span>
+    <div class="invite-brand">
+      <div class="invite-badge">
+        <span class="invite-pulse"></span>
+        <span>CUADERNO DE INVESTIGACIÓN</span>
+      </div>
+      <h1 class="invite-title">ML Quantitative Researcher</h1>
+      <p class="invite-description">Formación e investigación cuantitativa en mercados financieros.</p>
     </div>
-    <br>
-    <button class="btn-open-book" id="btn-open-book" aria-label="Abrir el cuaderno científico">
-      <span>Abrir Cuaderno de Investigación</span>
-      <span>↗</span>
-    </button>
-    <div class="invite-subtext">Pulsa la portada o presiona [Espacio / Enter]</div>
+    <div class="invite-actions">
+      <button class="btn-open-book" id="btn-open-book" aria-label="Abrir el cuaderno científico">
+        <span>Abrir cuaderno</span>
+        <span>↗</span>
+      </button>
+      <div class="invite-subtext">Selecciona la portada o presiona Espacio / Enter</div>
+    </div>
   </section>
 
   <!-- 4. CONTENEDOR DEL CUADERNO ABIERTO (LECTURA DOBLE PÁGINA) -->
@@ -143,7 +148,7 @@
       <div class="reading-progress-fill" id="reading-progress-fill"></div>
     </div>
 
-    <div class="page-indicator-text mono" id="page-indicator">Pág. 1 de 26</div>
+    <div class="page-indicator-text mono" id="page-indicator">Índice del cuaderno</div>
 
     <button class="dock-btn" id="dock-btn-next" aria-label="Página siguiente">
       <span>Siguiente</span>
@@ -162,12 +167,12 @@
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
   <!-- MÓDULOS DEL PROYECTO -->
-  <script src="book-content.js?v=20261031-3"></script>
+  <script src="book-content.js?v=20261031-4"></script>
   <script src="audio.js"></script>
-  <script src="book-3d.js?v=chapter2"></script>
+  <script src="book-3d.js?v=20261031-4"></script>
   <script src="chapter-1-data.js?v=2"></script>
-  <script src="chapter-1-renderer.js?v=8"></script>
-  <script src="learning-engine.js?v=chapter5"></script>
+  <script src="chapter-1-renderer.js?v=20261031-4"></script>
+  <script src="learning-engine.js?v=20261031-4"></script>
 
   <!-- LÓGICA DE CONTROL GLOBAL Y ACCESIBILIDAD -->
   <script>
@@ -195,6 +200,9 @@
         if (isAcc) {
           document.body.classList.add('accessible-mode');
           accBtn.classList.add('active');
+          if (window.learningEngine) {
+            window.learningEngine.renderCurrentSpread();
+          }
         }
 
         accBtn.onclick = () => {
@@ -238,4 +246,3 @@
   </script>
 </body>
 </html>
-
