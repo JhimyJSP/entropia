@@ -7,9 +7,29 @@
   const topicStage = document.getElementById("topic-stage");
   const topicTitle = document.getElementById("topic-title");
   const backButton = document.getElementById("back-to-index");
+  const welcome = document.getElementById("welcome-screen");
+  const appShell = document.getElementById("app-shell");
+  const openButton = document.getElementById("open-curriculum");
 
   if (!book || !Array.isArray(book.modules)) {
     throw new Error("No se pudo cargar el índice del cuaderno.");
+  }
+
+  function enterCurriculum(updateHistory = true) {
+    if (updateHistory) {
+      history.pushState({ view: "index" }, "", `${location.pathname}${location.search}`);
+    }
+    appShell.hidden = false;
+    welcome.classList.add("leaving");
+    window.setTimeout(() => {
+      welcome.hidden = true;
+    }, 420);
+  }
+
+  function showWelcome() {
+    appShell.hidden = true;
+    welcome.hidden = false;
+    welcome.classList.remove("leaving");
   }
 
   const topics = book.modules.reduce((total, module) => total + module.topics.length, 0);
@@ -57,7 +77,7 @@
     }
 
     if (updateHistory) {
-      history.pushState(null, "", `#tema-${moduleIndex}-${topicIndex}`);
+      history.pushState({ view: "topic" }, "", `#tema-${moduleIndex}-${topicIndex}`);
     }
     index.hidden = true;
     topicView.hidden = false;
@@ -70,8 +90,10 @@
 
   function showIndex(updateHistory = true) {
     if (updateHistory) {
-      history.pushState(null, "", `${location.pathname}${location.search}`);
+      history.pushState({ view: "index" }, "", `${location.pathname}${location.search}`);
     }
+    appShell.hidden = false;
+    welcome.hidden = true;
     topicView.hidden = true;
     index.hidden = false;
     window.scrollTo(0, 0);
@@ -81,13 +103,26 @@
   function restoreFromLocation() {
     const match = location.hash.match(/^#tema-(\d+)-(\d+)$/);
     if (match) {
+      if (history.state?.view !== "topic") {
+        history.replaceState({ view: "topic" }, "", location.href);
+      }
+      enterCurriculum(false);
       openTopic(Number(match[1]), Number(match[2]), false);
-    } else {
+    } else if (history.state?.view === "index") {
       showIndex(false);
+    } else {
+      showWelcome();
     }
   }
 
-  backButton.addEventListener("click", () => showIndex());
+  openButton.addEventListener("click", () => enterCurriculum());
+  backButton.addEventListener("click", () => {
+    if (history.state?.view === "topic") {
+      history.back();
+    } else {
+      showIndex();
+    }
+  });
   window.addEventListener("popstate", restoreFromLocation);
   window.addEventListener("hashchange", restoreFromLocation);
   restoreFromLocation();

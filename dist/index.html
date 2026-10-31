@@ -9,48 +9,75 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://jhimyjsp.github.io/entropia/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="curriculum.css?v=20261031-5">
+  <link rel="stylesheet" href="curriculum.css?v=20261031-6">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="./" aria-label="ML Quantitative Researcher, inicio">
-      <span class="brand-mark" aria-hidden="true">∿</span>
-      <span>ML Quantitative Researcher</span>
-    </a>
-    <span class="release-label">CUADERNO DE INVESTIGACIÓN · 2026.10.31</span>
-  </header>
-
-  <main class="site-main">
-    <section class="view index-view" id="curriculum-index" aria-labelledby="index-title">
-      <div class="intro">
-        <p class="eyebrow">RUTA DE FORMACIÓN</p>
-        <h1 id="index-title">Índice de formación e investigación</h1>
-        <p class="intro-copy">Elige una etapa y abre un tema en una vista de lectura clara.</p>
-        <p class="index-count" id="index-count"></p>
-      </div>
-      <div class="module-list" id="module-list"></div>
-    </section>
-
-    <section class="view topic-view" id="topic-view" aria-labelledby="topic-title" hidden>
-      <button class="back-button" id="back-to-index" type="button">
-        <span aria-hidden="true">←</span> Volver al índice
+  <section class="welcome-screen" id="welcome-screen" aria-labelledby="welcome-title">
+    <canvas class="welcome-canvas" id="welcome-canvas" aria-hidden="true"></canvas>
+    <div class="welcome-book-fallback" aria-hidden="true">
+      <span>∿</span>
+      <strong>ML QUANTITATIVE<br>RESEARCHER</strong>
+      <small>CUADERNO DE INVESTIGACIÓN</small>
+    </div>
+    <div class="welcome-glow" aria-hidden="true"></div>
+    <div class="welcome-heading">
+      <p class="welcome-kicker"><span class="live-dot"></span> CUADERNO DE INVESTIGACIÓN</p>
+      <h1 id="welcome-title">ML Quantitative Researcher</h1>
+      <p>Una ruta clara para investigar los mercados con métodos cuantitativos.</p>
+    </div>
+    <div class="welcome-actions">
+      <button class="welcome-open-button" id="open-curriculum" type="button">
+        <span>Explorar el temario</span>
+        <span aria-hidden="true">→</span>
       </button>
-      <article class="topic-content">
-        <p class="eyebrow" id="topic-stage"></p>
-        <h1 id="topic-title"></h1>
-        <div class="content-canvas" aria-label="Contenido del tema">
-          <p>Este tema todavía no tiene contenido desarrollado.</p>
+      <span>12 etapas · 73 temas</span>
+    </div>
+    <span class="welcome-version">VERSIÓN 2026.10.31</span>
+  </section>
+
+  <div class="app-shell" id="app-shell" hidden>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="ML Quantitative Researcher, inicio">
+        <span class="brand-mark" aria-hidden="true">∿</span>
+        <span>ML Quantitative Researcher</span>
+      </a>
+      <span class="release-label">CUADERNO DE INVESTIGACIÓN · 2026.10.31</span>
+    </header>
+
+    <main class="site-main">
+      <section class="view index-view" id="curriculum-index" aria-labelledby="index-title">
+        <div class="intro">
+          <p class="eyebrow">RUTA DE FORMACIÓN</p>
+          <h1 id="index-title">Índice de formación e investigación</h1>
+          <p class="intro-copy">Elige una etapa y abre un tema en una vista de lectura clara.</p>
+          <p class="index-count" id="index-count"></p>
         </div>
-      </article>
-    </section>
-  </main>
+        <div class="module-list" id="module-list"></div>
+      </section>
 
-  <footer class="site-footer">
-    <span>ML Quantitative Researcher</span>
-    <span>Formación e investigación cuantitativa</span>
-  </footer>
+      <section class="view topic-view" id="topic-view" aria-labelledby="topic-title" hidden>
+        <button class="back-button" id="back-to-index" type="button">
+          <span aria-hidden="true">←</span> Volver al índice
+        </button>
+        <article class="topic-content">
+          <p class="eyebrow" id="topic-stage"></p>
+          <h1 id="topic-title"></h1>
+          <div class="content-canvas" aria-label="Contenido del tema">
+            <p>Este tema todavía no tiene contenido desarrollado.</p>
+          </div>
+        </article>
+      </section>
+    </main>
 
-  <script src="book-content.js?v=20261031-5"></script>
-  <script src="learning-engine.js?v=20261031-5"></script>
+    <footer class="site-footer">
+      <span>ML Quantitative Researcher</span>
+      <span>Formación e investigación cuantitativa</span>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="book-content.js?v=20261031-6"></script>
+  <script src="welcome-book.js?v=20261031-6"></script>
+  <script src="learning-engine.js?v=20261031-6"></script>
 </body>
 </html>
