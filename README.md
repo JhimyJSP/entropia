@@ -1,19 +1,10 @@
 # ML Quantitative Researcher
 
-> **Cuaderno de investigación cuantitativa aplicada a los mercados financieros.**
-
-Bienvenido a **ML Quantitative Researcher**, un cuaderno interactivo para estudiar, experimentar y documentar investigación cuantitativa en mercados financieros.
+Índice interactivo de formación e investigación cuantitativa en mercados financieros. El sitio funciona en una vista 2D de una sola página: selecciona un tema para abrir su área de lectura y vuelve al índice con el botón superior.
 
 ---
 
-## 🔬 ¿Qué es la Econofísica?
-
-La **econofísica** es un campo interdisciplinar de investigación que aplica teorías, modelos y conceptos desarrollados originalmente en la física estadística y mecánica estadística para resolver problemas de la economía, en especial en mercados financieros y distribuciones de riqueza.
-
-### Características del proyecto:
-- **Laboratorio Interactivo:** Simulador de paseos aleatorios (*random walks*) para modelar fluctuaciones y volatilidad.
-- **Archivo de Investigaciones:** Registro y gestión de hipótesis, notas y documentos científicos sobre mercados, redes y física estadística.
-- **Ruta de Aprendizaje:** Guía estructurada desde fundamentos matemáticos y probabilísticos hasta la formulación de modelos económicos complejos.
+El índice contiene doce etapas y 73 temas. Al seleccionar un tema se abre una vista de lectura 2D de una sola página. El contenido de cada tema se puede incorporar posteriormente.
 
 ---
 
@@ -35,11 +26,10 @@ Para activarlo en GitHub:
 ```text
 entropia/
 ├── dist/
-│   ├── index.html        # Página principal con optimización SEO y datos estructurados
-│   ├── style.css         # Estilos visuales
-│   ├── app.js            # Lógica interactiva, simulaciones y canvas
-│   ├── chapter-1-data.js # Contenido del capítulo de sistemas, mercados y observación
-│   ├── chapter-1-renderer.js # Renderizado del capítulo y sus simulaciones
+│   ├── index.html        # Índice y vista de lectura de una sola página
+│   ├── curriculum.css    # Diseño 2D adaptable
+│   ├── book-content.js   # Etapas y temas del índice
+│   ├── learning-engine.js # Navegación entre índice y temas
 │   ├── robots.txt        # Instrucciones para motores de búsqueda (Google)
 │   └── sitemap.xml       # Mapa del sitio para indexación rápida
 ├── .github/
@@ -51,4 +41,4 @@ entropia/
 ---
 
 ## 📝 Autor y Licencia
-Desarrollado con fines educativos y de investigación científica en econofísica.
+Desarrollado con fines educativos y de investigación cuantitativa.

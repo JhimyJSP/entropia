@@ -2,247 +2,55 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ML Quantitative Researcher</title>
-  <meta name="description" content="Plataforma educativa inmersiva en formato de cuaderno científico 3D interactivo. Estudia econofísica, paseos aleatorios, colas pesadas, leyes de potencia y modelos de redes complejas.">
-  <meta name="keywords" content="econofísica, econofisica, cuaderno 3D, simulación estocástica, paseo aleatorio, leyes de potencia, fractales, Benoit Mandelbrot, sistemas complejos, física estadística">
+  <meta name="description" content="Índice de formación e investigación cuantitativa en mercados financieros.">
   <meta name="author" content="Jhimy Sayas Parodi">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://jhimyjsp.github.io/entropia/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ML Quantitative Researcher">
-  <meta property="og:title" content="ML Quantitative Researcher | Cuaderno de Investigación">
-  <meta property="og:description" content="Explora un cuaderno científico tridimensional con páginas interactivas, fórmulas KaTeX y simulaciones numéricas de sistemas complejos.">
-  <meta property="og:url" content="https://jhimyjsp.github.io/entropia/">
-  <meta property="og:locale" content="es_ES">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ML Quantitative Researcher | Cuaderno de Investigación">
-  <meta name="twitter:description" content="Laboratorio de econofísica inmersivo con simulaciones 2D/3D y cuaderno interactivo.">
-
-  <!-- KaTeX CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" crossorigin="anonymous">
-
-  <!-- Estilos del Cuaderno 3D y Plataforma -->
-  <link rel="stylesheet" href="style.css?v=20261031-4">
-
-  <!-- Schema.org estructurado (WebApplication + FAQPage) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "@id": "https://jhimyjsp.github.io/entropia/#webapp",
-        "name": "ML QUANTITATIVE RESEARCH — Cuaderno 3D de Econofísica",
-        "url": "https://jhimyjsp.github.io/entropia/",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "All",
-        "description": "Plataforma educativa inmersiva estructurada como un cuaderno científico 3D para estudiar econofísica y dinámicas complejas.",
-        "genre": "Econofísica",
-        "author": {
-          "@type": "Person",
-          "name": "Jhimy Sayas Parodi"
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://jhimyjsp.github.io/entropia/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Qué es la econofísica y qué estudia?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "La econofísica es una disciplina interdisciplinaria que aplica herramientas de la física estadística, la teoría del caos y los sistemas complejos para modelar mercados financieros y distribuciones socioeconómicas."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Por qué la econofísica rechaza la campana de Gauss en finanzas?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Porque las fluctuaciones de precios presentan colas pesadas (fat tails) y leyes de potencias, haciendo que los colapsos y pánicos ocurran con mucha mayor frecuencia de lo predicho por una distribución normal."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="curriculum.css?v=20261031-5">
 </head>
 <body>
-
-  <!-- 1. CONTROLES AMBIENTALES SUPERIORES (DISCRETOS) -->
-  <header class="ambient-controls" role="toolbar" aria-label="Controles ambientales">
-    <button class="ambient-btn" id="btn-audio-mute" title="Silenciar / Activar sonido" aria-label="Control de sonido">
-      <span id="audio-icon">🔊</span>
-      <span id="audio-text" class="mono">Audio</span>
-    </button>
-    <button class="ambient-btn" id="btn-accessible-toggle" title="Modo lectura 2D accesible (sin WebGL)" aria-label="Modo lectura plana">
-      <span>📖</span>
-      <span class="mono">Modo 2D</span>
-    </button>
-    <button class="ambient-btn" id="btn-index" title="Volver al índice" aria-label="Volver al índice">
-      <span>☰</span>
-      <span class="mono">Índice</span>
-    </button>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="ML Quantitative Researcher, inicio">
+      <span class="brand-mark" aria-hidden="true">∿</span>
+      <span>ML Quantitative Researcher</span>
+    </a>
+    <span class="release-label">CUADERNO DE INVESTIGACIÓN · 2026.10.31</span>
   </header>
 
-  <!-- 2. ESCENARIO THREE.JS (CANVAS 3D DEL CUADERNO CERRADO) -->
-  <main id="canvas-container" aria-label="Escenario 3D interactivo">
-    <canvas id="book-canvas"></canvas>
+  <main class="site-main">
+    <section class="view index-view" id="curriculum-index" aria-labelledby="index-title">
+      <div class="intro">
+        <p class="eyebrow">RUTA DE FORMACIÓN</p>
+        <h1 id="index-title">Índice de formación e investigación</h1>
+        <p class="intro-copy">Elige una etapa y abre un tema en una vista de lectura clara.</p>
+        <p class="index-count" id="index-count"></p>
+      </div>
+      <div class="module-list" id="module-list"></div>
+    </section>
+
+    <section class="view topic-view" id="topic-view" aria-labelledby="topic-title" hidden>
+      <button class="back-button" id="back-to-index" type="button">
+        <span aria-hidden="true">←</span> Volver al índice
+      </button>
+      <article class="topic-content">
+        <p class="eyebrow" id="topic-stage"></p>
+        <h1 id="topic-title"></h1>
+        <div class="content-canvas" aria-label="Contenido del tema">
+          <p>Este tema todavía no tiene contenido desarrollado.</p>
+        </div>
+      </article>
+    </section>
   </main>
 
-  <!-- 3. INVITACIÓN VISUAL INICIAL (SOLO VISIBLE CON CUADERNO CERRADO) -->
-  <section class="book-invitation-overlay" id="book-invite" aria-live="polite">
-    <div class="invite-brand">
-      <div class="invite-badge">
-        <span class="invite-pulse"></span>
-        <span>CUADERNO DE INVESTIGACIÓN</span>
-      </div>
-      <h1 class="invite-title">ML Quantitative Researcher</h1>
-      <p class="invite-description">Formación e investigación cuantitativa en mercados financieros.</p>
-    </div>
-    <div class="invite-actions">
-      <button class="btn-open-book" id="btn-open-book" aria-label="Abrir el cuaderno científico">
-        <span>Abrir cuaderno</span>
-        <span>↗</span>
-      </button>
-      <div class="invite-subtext">Selecciona la portada o presiona Espacio / Enter</div>
-    </div>
-  </section>
+  <footer class="site-footer">
+    <span>ML Quantitative Researcher</span>
+    <span>Formación e investigación cuantitativa</span>
+  </footer>
 
-  <!-- 4. CONTENEDOR DEL CUADERNO ABIERTO (LECTURA DOBLE PÁGINA) -->
-  <section class="open-book-viewport" id="book-viewport" aria-label="Lectura del cuaderno">
-    <div class="book-spread-wrapper" id="pages-container">
-      <!-- Página Izquierda -->
-      <article class="page-sheet left-page" id="left-page" tabindex="0" aria-label="Página izquierda">
-        <!-- Contenido inyectado dinámicamente -->
-      </article>
-
-      <!-- Página Derecha -->
-      <article class="page-sheet right-page" id="right-page" tabindex="0" aria-label="Página derecha">
-        <!-- Contenido inyectado dinámicamente -->
-      </article>
-    </div>
-  </section>
-
-  <!-- 5. DOCK INFERIOR DE NAVEGACIÓN Y PROGRESO -->
-  <nav class="book-bottom-dock" id="bottom-dock" aria-label="Navegación del libro">
-    <button class="dock-btn" id="dock-btn-prev" aria-label="Página anterior">
-      <span>←</span>
-      <span>Anterior</span>
-    </button>
-
-    <button class="dock-btn" id="dock-btn-toc" aria-label="Ir al índice o temario">
-      <span>📖</span>
-      <span>Índice</span>
-    </button>
-
-    <div class="reading-progress-track" aria-hidden="true" title="Progreso de lectura">
-      <div class="reading-progress-fill" id="reading-progress-fill"></div>
-    </div>
-
-    <div class="page-indicator-text mono" id="page-indicator">Índice del cuaderno</div>
-
-    <button class="dock-btn" id="dock-btn-next" aria-label="Página siguiente">
-      <span>Siguiente</span>
-      <span>→</span>
-    </button>
-
-    <button class="dock-btn" id="dock-btn-close" aria-label="Cerrar el cuaderno" title="Cerrar cuaderno">
-      <span>↺</span>
-      <span>Cerrar</span>
-    </button>
-  </nav>
-
-  <!-- LIBRERÍAS EXTERNAS: THREE.JS Y KATEX -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
-
-  <!-- MÓDULOS DEL PROYECTO -->
-  <script src="book-content.js?v=20261031-4"></script>
-  <script src="audio.js"></script>
-  <script src="book-3d.js?v=20261031-4"></script>
-  <script src="chapter-1-data.js?v=2"></script>
-  <script src="chapter-1-renderer.js?v=20261031-4"></script>
-  <script src="learning-engine.js?v=20261031-4"></script>
-
-  <!-- LÓGICA DE CONTROL GLOBAL Y ACCESIBILIDAD -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Controles de audio
-      const muteBtn = document.getElementById('btn-audio-mute');
-      const audioIcon = document.getElementById('audio-icon');
-
-      if (muteBtn && window.bookAudio) {
-        if (window.bookAudio.isMuted) {
-          audioIcon.textContent = '🔇';
-          muteBtn.classList.add('muted');
-        }
-        muteBtn.onclick = () => {
-          const muted = window.bookAudio.toggleMute();
-          audioIcon.textContent = muted ? '🔇' : '🔊';
-          muteBtn.classList.toggle('muted', muted);
-        };
-      }
-
-      // Modo Accesible 2D (sin WebGL)
-      const accBtn = document.getElementById('btn-accessible-toggle');
-      if (accBtn) {
-        const isAcc = localStorage.getItem('entropia-accessible-mode') === 'true';
-        if (isAcc) {
-          document.body.classList.add('accessible-mode');
-          accBtn.classList.add('active');
-          if (window.learningEngine) {
-            window.learningEngine.renderCurrentSpread();
-          }
-        }
-
-        accBtn.onclick = () => {
-          const nowAcc = document.body.classList.toggle('accessible-mode');
-          accBtn.classList.toggle('active', nowAcc);
-          accBtn.querySelector('.mono').textContent = nowAcc ? 'Volver a 3D' : 'Modo 2D';
-          localStorage.setItem('entropia-accessible-mode', String(nowAcc));
-          if (window.learningEngine) {
-            window.learningEngine.renderCurrentSpread();
-          }
-        };
-      }
-      if (accBtn && document.body.classList.contains('accessible-mode')) {
-        accBtn.querySelector('.mono').textContent = 'Volver a 3D';
-      }
-
-      const indexBtn = document.getElementById('btn-index');
-      if (indexBtn && window.learningEngine) {
-        indexBtn.onclick = () => window.learningEngine.goToPage(1);
-      }
-
-      // Botones del dock inferior
-      const prevBtn = document.getElementById('dock-btn-prev');
-      const nextBtn = document.getElementById('dock-btn-next');
-      const tocBtn = document.getElementById('dock-btn-toc');
-      const closeDockBtn = document.getElementById('dock-btn-close');
-
-      if (prevBtn && window.learningEngine) {
-        prevBtn.onclick = () => window.learningEngine.prevPage();
-      }
-      if (nextBtn && window.learningEngine) {
-        nextBtn.onclick = () => window.learningEngine.nextPage();
-      }
-      if (tocBtn && window.learningEngine) {
-        tocBtn.onclick = () => window.learningEngine.goToPage(1);
-      }
-      if (closeDockBtn && window.book3D) {
-        closeDockBtn.onclick = () => window.book3D.closeBook();
-      }
-    });
-  </script>
+  <script src="book-content.js?v=20261031-5"></script>
+  <script src="learning-engine.js?v=20261031-5"></script>
 </body>
 </html>
