@@ -434,6 +434,612 @@ h1 {
   line-height: 1.7;
 }
 
+.topic-content:has(.lesson) {
+  max-width: none;
+  min-height: 0;
+  padding: clamp(20px, 4vw, 40px);
+  overflow: visible;
+}
+
+.lesson {
+  display: grid;
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.lesson-opening,
+.lesson-section {
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(12, 24, 40, 0.96), rgba(7, 16, 29, 0.98));
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+}
+
+.lesson-opening {
+  border-color: rgba(34, 211, 238, 0.24);
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(34, 211, 238, 0.1), transparent 50%),
+    linear-gradient(145deg, #0c192a, #07101d);
+}
+
+.lesson-kicker {
+  margin: 0 0 9px;
+  color: #67e8f9;
+  font: 700 10px "Consolas", monospace;
+  letter-spacing: 0.12em;
+}
+
+.lesson-opening h2 {
+  max-width: 760px;
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(23px, 3.8vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.lesson-opening > p:not(.lesson-kicker),
+.section-lead {
+  max-width: 780px;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.lesson-question,
+.lesson-callout {
+  display: grid;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-left: 3px solid #22d3ee;
+  border-radius: 0 9px 9px 0;
+  color: #e2e8f0;
+  background: rgba(34, 211, 238, 0.07);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.lesson-question > span {
+  color: #67e8f9;
+  font: 700 10px "Consolas", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lesson-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 18px;
+}
+
+.lesson-step-mark {
+  width: 35px;
+  height: 35px;
+  flex: 0 0 35px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(34, 211, 238, 0.28);
+  border-radius: 10px;
+  color: #67e8f9;
+  background: rgba(34, 211, 238, 0.08);
+  font: 700 12px "Consolas", monospace;
+}
+
+.lesson-section-heading .lesson-kicker {
+  margin-bottom: 4px;
+}
+
+.lesson-section-heading h3 {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: clamp(18px, 2.5vw, 22px);
+  line-height: 1.35;
+}
+
+.finance-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.finance-control {
+  display: grid;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 10px;
+  color: #cbd5e1;
+  background: rgba(2, 8, 19, 0.52);
+  font-size: 12px;
+}
+
+.finance-control output {
+  color: #67e8f9;
+  font: 700 19px "Consolas", monospace;
+}
+
+.finance-control input {
+  width: 100%;
+  accent-color: #22d3ee;
+  cursor: pointer;
+}
+
+.finance-calculation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 25px minmax(0, 1fr) 25px minmax(0, 1fr);
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.calculation-item {
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 12px;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 10px;
+  background: rgba(34, 211, 238, 0.05);
+}
+
+.calculation-item > span,
+.calculation-item small {
+  color: #9aabc0;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.calculation-item strong {
+  color: #a5f3fc;
+  font: 700 clamp(16px, 2.3vw, 22px) "Consolas", monospace;
+}
+
+.calculation-gap.has-gap {
+  border-color: rgba(251, 191, 36, 0.48);
+  background: rgba(245, 158, 11, 0.07);
+}
+
+.calculation-gap.has-gap strong {
+  color: #fcd34d;
+}
+
+.calculation-operator {
+  color: #22d3ee;
+  text-align: center;
+  font-size: 18px;
+}
+
+.calculation-note {
+  margin: 13px 0 0;
+  padding: 11px 13px;
+  border-radius: 8px;
+  color: #dbeafe;
+  background: rgba(37, 99, 235, 0.1);
+  font: 12px/1.6 "Consolas", monospace;
+}
+
+.algebra-board,
+.instrument-map {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 9px;
+  background: rgba(2, 8, 19, 0.46);
+}
+
+.algebra-board > .lesson-kicker {
+  margin-bottom: 10px;
+}
+
+#algebra-steps {
+  display: grid;
+  gap: 7px;
+}
+
+#algebra-steps > p {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, auto);
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 9px 10px;
+  border-radius: 7px;
+  background: rgba(148, 163, 184, 0.045);
+}
+
+#algebra-steps span {
+  color: #b6c4d5;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+#algebra-steps code {
+  color: #a5f3fc;
+  font: 11px/1.55 "Consolas", monospace;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.unit-check {
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+  color: #9aabc0;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.unit-check strong {
+  color: #67e8f9;
+}
+
+.lesson-hint {
+  margin: 13px 0 0;
+  color: #9aabc0;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.route-controls {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.route-step,
+.stress-test button {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 7px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+  color: #b6c4d5;
+  background: rgba(2, 8, 19, 0.55);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.route-step span {
+  color: #7dd3fc;
+  font: 700 10px "Consolas", monospace;
+}
+
+.route-step.is-selected,
+.stress-test button[aria-pressed="true"] {
+  border-color: rgba(34, 211, 238, 0.55);
+  color: #cffafe;
+  background: rgba(34, 211, 238, 0.12);
+}
+
+.flow-board {
+  min-height: 148px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 2vw, 18px);
+  margin-top: 13px;
+  padding: 16px 10px;
+  border: 1px solid rgba(148, 163, 184, 0.13);
+  border-radius: 10px;
+  background:
+    linear-gradient(rgba(34, 211, 238, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.035) 1px, transparent 1px),
+    rgba(2, 8, 19, 0.57);
+  background-size: 24px 24px;
+}
+
+.flow-actor {
+  width: min(185px, 29%);
+  min-height: 92px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 5px;
+  padding: 10px 6px;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 9px;
+  background: rgba(8, 20, 35, 0.92);
+  text-align: center;
+}
+
+.actor-icon {
+  color: #67e8f9;
+  font-size: 20px;
+}
+
+.flow-actor strong {
+  color: #f1f5f9;
+  font-size: 12px;
+}
+
+.flow-actor small {
+  color: #9aabc0;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.flow-arrow {
+  color: #22d3ee;
+  font-size: clamp(14px, 2.5vw, 22px);
+}
+
+.route-explanation {
+  min-height: 78px;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-left: 3px solid #3b82f6;
+  border-radius: 0 8px 8px 0;
+  color: #cbd5e1;
+  background: rgba(37, 99, 235, 0.08);
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.route-explanation strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #93c5fd;
+}
+
+.route-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 13px;
+}
+
+.route-navigation > span {
+  color: #8193a9;
+  font: 10px "Consolas", monospace;
+  letter-spacing: 0.06em;
+}
+
+.lesson-button {
+  padding: 9px 12px;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-radius: 8px;
+  color: #cffafe;
+  background: rgba(34, 211, 238, 0.1);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lesson-button-secondary {
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, 0.06);
+}
+
+.lesson-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.section-lead {
+  margin: -4px 0 16px;
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.role-card {
+  position: relative;
+  min-height: 165px;
+  padding: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 10px;
+  background: rgba(2, 8, 19, 0.48);
+}
+
+.role-number {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  color: rgba(34, 211, 238, 0.45);
+  font: 700 12px "Consolas", monospace;
+}
+
+.role-card h4 {
+  margin: 0 22px 8px 0;
+  color: #e2e8f0;
+  font-size: 14px;
+}
+
+.role-card p {
+  margin: 0;
+  color: #aab8ca;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.role-output {
+  display: block;
+  margin-top: 11px;
+  color: #67e8f9;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.instrument-map {
+  margin-top: 14px;
+}
+
+.instrument-map h4 {
+  margin: 0 0 10px;
+  color: #e2e8f0;
+  font-size: 13px;
+}
+
+.instrument-row {
+  display: grid;
+  grid-template-columns: minmax(125px, 0.7fr) minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 12px;
+  padding: 11px 8px;
+  border-top: 1px solid rgba(148, 163, 184, 0.13);
+  color: #aab8ca;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.instrument-row strong {
+  color: #a5f3fc;
+  font-size: 11px;
+}
+
+.instrument-heading {
+  color: #8193a9;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.transaction-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.transaction-card {
+  padding: 17px;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 10px;
+  background: rgba(2, 8, 19, 0.5);
+}
+
+.secondary-transaction {
+  border-color: rgba(96, 165, 250, 0.22);
+}
+
+.transaction-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 10px;
+  color: #cbd5e1;
+  font-size: 10px;
+}
+
+.transaction-flow b {
+  color: #67e8f9;
+  font: 700 10px "Consolas", monospace;
+  text-align: center;
+}
+
+.secondary-transaction .transaction-flow b {
+  color: #93c5fd;
+}
+
+.transaction-card > p:not(.lesson-kicker) {
+  min-height: 58px;
+  margin: 13px 0 10px;
+  color: #aab8ca;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.transaction-card > strong {
+  color: #a5f3fc;
+  font-size: 11px;
+}
+
+.secondary-transaction > strong {
+  color: #bfdbfe;
+}
+
+.settlement-sequence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.settlement-sequence > div {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 9px;
+  background: rgba(2, 8, 19, 0.46);
+}
+
+.settlement-sequence b {
+  color: #a5f3fc;
+  font-size: 12px;
+}
+
+.settlement-sequence span {
+  color: #aab8ca;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.lesson-callout strong {
+  color: #67e8f9;
+  font-size: 12px;
+}
+
+.lesson-callout span {
+  color: #cbd5e1;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.stress-test {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stress-test button {
+  padding: 10px 12px;
+}
+
+.stress-test p {
+  flex: 1 0 100%;
+  min-height: 58px;
+  margin: 7px 0 0;
+  padding: 13px 15px;
+  border-left: 3px solid #22d3ee;
+  border-radius: 0 8px 8px 0;
+  color: #cbd5e1;
+  background: rgba(34, 211, 238, 0.06);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.recall-card details {
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.recall-card summary {
+  padding: 13px 3px;
+  color: #dbeafe;
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.recall-card details p {
+  margin: 0 0 14px;
+  padding: 0 14px 0 3px;
+  color: #aab8ca;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
 [hidden] {
   display: none !important;
 }
@@ -452,6 +1058,40 @@ h1 {
 }
 
 @media (max-width: 600px) {
+  .welcome-heading {
+    top: 7vh;
+  }
+
+  .welcome-heading > p:last-child {
+    max-width: 330px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .welcome-book-fallback {
+    top: 53%;
+    width: min(230px, 57vw);
+    gap: 10px;
+  }
+
+  .welcome-book-fallback > span {
+    font-size: 34px;
+  }
+
+  .welcome-book-fallback small {
+    font-size: 7px;
+  }
+
+  .welcome-actions {
+    bottom: 4vh;
+  }
+
+  .welcome-version {
+    right: 12px;
+    bottom: 10px;
+    font-size: 8px;
+  }
+
   .site-header {
     min-height: 60px;
     align-items: flex-start;
@@ -506,5 +1146,96 @@ h1 {
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .finance-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .finance-control {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px 12px;
+  }
+
+  .finance-control input {
+    grid-column: 1 / -1;
+  }
+
+  .finance-calculation {
+    grid-template-columns: 1fr;
+  }
+
+  #algebra-steps > p {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  #algebra-steps code {
+    text-align: left;
+  }
+
+  .calculation-operator {
+    display: none;
+  }
+
+  .calculation-item {
+    min-height: 82px;
+  }
+
+  .route-controls {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .flow-board {
+    min-height: 130px;
+    gap: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .flow-actor {
+    width: 31%;
+    min-height: 84px;
+    padding: 7px 3px;
+  }
+
+  .flow-actor strong {
+    font-size: 10px;
+  }
+
+  .flow-actor small {
+    font-size: 9px;
+  }
+
+  .role-grid,
+  .transaction-comparison,
+  .settlement-sequence {
+    grid-template-columns: 1fr;
+  }
+
+  .role-card {
+    min-height: 0;
+  }
+
+  .instrument-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .instrument-heading {
+    display: none;
+  }
+
+  .transaction-card > p:not(.lesson-kicker) {
+    min-height: 0;
+  }
+
+  .transaction-flow {
+    font-size: 9px;
+  }
+
+  .transaction-flow b {
+    font-size: 9px;
   }
 }

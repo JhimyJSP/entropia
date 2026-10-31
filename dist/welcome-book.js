@@ -127,6 +127,7 @@
     let pointerX = 0;
     let pointerY = 0;
     let frame;
+    let animating = false;
 
     const resize = () => {
       const width = Math.max(1, welcome.clientWidth);
@@ -138,7 +139,10 @@
     };
 
     const animate = () => {
-      if (welcome.hidden) return;
+      if (welcome.hidden) {
+        animating = false;
+        return;
+      }
       if (!reducedMotion) {
         book.rotation.y += ((pointerX * 0.12) - book.rotation.y) * 0.025;
         book.rotation.x += ((-0.18 + pointerY * 0.055) - book.rotation.x) * 0.025;
@@ -146,6 +150,17 @@
         dust.rotation.y += 0.0004;
       }
       renderer.render(scene, camera);
+      if (!reducedMotion) frame = requestAnimationFrame(animate);
+    };
+
+    const resume = () => {
+      if (welcome.hidden) return;
+      if (reducedMotion) {
+        renderer.render(scene, camera);
+        return;
+      }
+      if (animating) return;
+      animating = true;
       frame = requestAnimationFrame(animate);
     };
 
@@ -156,7 +171,8 @@
     });
     resize();
     welcome.classList.add("webgl-ready");
-    animate();
+    resume();
+    window.welcomeBook = { resume };
 
     window.addEventListener("pagehide", () => {
       cancelAnimationFrame(frame);

@@ -6,6 +6,7 @@
   const topicView = document.getElementById("topic-view");
   const topicStage = document.getElementById("topic-stage");
   const topicTitle = document.getElementById("topic-title");
+  const topicLesson = document.getElementById("topic-lesson");
   const backButton = document.getElementById("back-to-index");
   const welcome = document.getElementById("welcome-screen");
   const appShell = document.getElementById("app-shell");
@@ -30,6 +31,7 @@
     appShell.hidden = true;
     welcome.hidden = false;
     welcome.classList.remove("leaving");
+    window.welcomeBook?.resume();
   }
 
   const topics = book.modules.reduce((total, module) => total + module.topics.length, 0);
@@ -83,6 +85,12 @@
     topicView.hidden = false;
     topicStage.textContent = `ETAPA ${module.number} · ${module.title}`;
     topicTitle.textContent = topic;
+    if (moduleIndex === 0 && topicIndex === 0 && window.financialSystemLesson) {
+      topicLesson.innerHTML = window.financialSystemLesson.template;
+      window.financialSystemLesson.init(topicLesson);
+    } else {
+      topicLesson.innerHTML = "<p>Este tema todavía no tiene contenido desarrollado.</p>";
+    }
     topicView.scrollTop = 0;
     window.scrollTo(0, 0);
     document.title = `${topic} | ${book.meta.title}`;
